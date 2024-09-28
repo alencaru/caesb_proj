@@ -1,0 +1,213 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<partial-response><changes><update id="tabView:formFaltaDeAgua"><![CDATA[
+<form id="tabView:formFaltaDeAgua" name="tabView:formFaltaDeAgua" method="post" action="/portal-servicos/app/publico/consultarfaltadagua?execution=e1s1" enctype="application/x-www-form-urlencoded">
+            <input type="hidden" name="tabView:formFaltaDeAgua"
+                value="tabView:formFaltaDeAgua" />
+            <div id="tabView:formFaltaDeAgua:tableFaltaDeAgua"
+                class="ui-datatable ui-widget"><div
+                    class="ui-datatable-tablewrapper"><table role="grid"
+                        class="layoutAuto"><thead
+                            id="tabView:formFaltaDeAgua:tableFaltaDeAgua_head"><tr
+                                role="row"><th
+                                    id="tabView:formFaltaDeAgua:tableFaltaDeAgua:j_idt32"
+                                    class="ui-state-default ui-sortable-column ui-filter-column"
+                                    role="columnheader" aria-label="RA"
+                                    scope="col"
+                                    style="text-align: center; width: auto;"><span
+                                        class="ui-column-title">RA</span><span
+                                        class="ui-sortable-column-icon ui-icon ui-icon-carat-2-n-s"></span><label
+                                        id="tabView:formFaltaDeAgua:tableFaltaDeAgua:j_idt32:filter_label"
+                                        for="tabView:formFaltaDeAgua:tableFaltaDeAgua:j_idt32:filter"
+                                        class="ui-helper-hidden">Filter by
+                                        RA</label><input
+                                        id="tabView:formFaltaDeAgua:tableFaltaDeAgua:j_idt32:filter"
+                                        name="tabView:formFaltaDeAgua:tableFaltaDeAgua:j_idt32:filter"
+                                        class="ui-column-filter ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all"
+                                        autocomplete="off"
+                                        aria-labelledby="tabView:formFaltaDeAgua:tableFaltaDeAgua:j_idt32:filter_label" /></th><th
+                                    id="tabView:formFaltaDeAgua:tableFaltaDeAgua:j_idt34"
+                                    class="ui-state-default ui-sortable-column ui-filter-column"
+                                    role="columnheader"
+                                    aria-label="Áreas Afetadas" scope="col"
+                                    style="text-align: center; width: 45%;                                   /* These are technically the same, but use both */                                   overflow-wrap: break-word;                                   word-wrap: break-word;                                                                    -ms-word-break: break-all;                                   /* This is the dangerous one in WebKit, as it breaks things wherever */                                   word-break: break-all;                                   /* Instead use this non-standard one: */                                   word-break: break-word;                                                                    /* Adds a hyphen where the word breaks, if supported (No Blink) */                                   -ms-hyphens: auto;                                   -moz-hyphens: auto;                                   -webkit-hyphens: auto;                                   hyphens: auto;                               "><span
+                                        class="ui-column-title">Áreas
+                                        Afetadas</span><span
+                                        class="ui-sortable-column-icon ui-icon ui-icon-carat-2-n-s"></span><label
+                                        id="tabView:formFaltaDeAgua:tableFaltaDeAgua:j_idt34:filter_label"
+                                        for="tabView:formFaltaDeAgua:tableFaltaDeAgua:j_idt34:filter"
+                                        class="ui-helper-hidden">Filter by Áreas
+                                        Afetadas</label><input
+                                        id="tabView:formFaltaDeAgua:tableFaltaDeAgua:j_idt34:filter"
+                                        name="tabView:formFaltaDeAgua:tableFaltaDeAgua:j_idt34:filter"
+                                        class="ui-column-filter ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all"
+                                        autocomplete="off"
+                                        aria-labelledby="tabView:formFaltaDeAgua:tableFaltaDeAgua:j_idt34:filter_label" /></th><th
+                                    id="tabView:formFaltaDeAgua:tableFaltaDeAgua:j_idt36"
+                                    class="ui-state-default ui-sortable-column ui-filter-column ui-state-active"
+                                    role="columnheader" aria-label="Início"
+                                    scope="col"
+                                    style="text-align: center; width: auto;"><span
+                                        class="ui-column-title">Início</span><span
+                                        class="ui-sortable-column-icon ui-icon ui-icon ui-icon-carat-2-n-s ui-icon-triangle-1-s"></span><label
+                                        id="tabView:formFaltaDeAgua:tableFaltaDeAgua:j_idt36:filter_label"
+                                        for="tabView:formFaltaDeAgua:tableFaltaDeAgua:j_idt36:filter"
+                                        class="ui-helper-hidden">Filter by
+                                        Início</label><input
+                                        id="tabView:formFaltaDeAgua:tableFaltaDeAgua:j_idt36:filter"
+                                        name="tabView:formFaltaDeAgua:tableFaltaDeAgua:j_idt36:filter"
+                                        class="ui-column-filter ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all"
+                                        autocomplete="off"
+                                        aria-labelledby="tabView:formFaltaDeAgua:tableFaltaDeAgua:j_idt36:filter_label" /></th><th
+                                    id="tabView:formFaltaDeAgua:tableFaltaDeAgua:j_idt38"
+                                    class="ui-state-default ui-sortable-column ui-filter-column"
+                                    role="columnheader"
+                                    aria-label="Normalização" scope="col"
+                                    style="text-align: center; width: auto;"><span
+                                        class="ui-column-title">Normalização</span><span
+                                        class="ui-sortable-column-icon ui-icon ui-icon-carat-2-n-s"></span><label
+                                        id="tabView:formFaltaDeAgua:tableFaltaDeAgua:j_idt38:filter_label"
+                                        for="tabView:formFaltaDeAgua:tableFaltaDeAgua:j_idt38:filter"
+                                        class="ui-helper-hidden">Filter by
+                                        Normalização</label><input
+                                        id="tabView:formFaltaDeAgua:tableFaltaDeAgua:j_idt38:filter"
+                                        name="tabView:formFaltaDeAgua:tableFaltaDeAgua:j_idt38:filter"
+                                        class="ui-column-filter ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all"
+                                        autocomplete="off"
+                                        aria-labelledby="tabView:formFaltaDeAgua:tableFaltaDeAgua:j_idt38:filter_label" /></th><th
+                                    id="tabView:formFaltaDeAgua:tableFaltaDeAgua:j_idt40"
+                                    class="ui-state-default" role="columnheader"
+                                    aria-label="Tipo de Falta de Água"
+                                    scope="col"
+                                    style="text-align: center; width: auto;"><span
+                                        class="ui-column-title">Tipo de Falta de
+                                        Água</span></th><th
+                                    id="tabView:formFaltaDeAgua:tableFaltaDeAgua:j_idt42"
+                                    class="ui-state-default" role="columnheader"
+                                    aria-label="Motivo da Falta de Água"
+                                    scope="col"
+                                    style="text-align: center; width: auto;"><span
+                                        class="ui-column-title">Motivo da Falta
+                                        de Água</span></th></tr></thead><tbody
+                            id="tabView:formFaltaDeAgua:tableFaltaDeAgua_data"
+                            class="ui-datatable-data ui-widget-content"><tr
+                                data-ri="0"
+                                class="ui-widget-content ui-datatable-even"
+                                role="row"><td role="gridcell"
+                                    style="text-align: center; width: auto;">Park
+                                    Way</td><td role="gridcell"
+                                    style="text-align: center; width: 45%;                                   /* These are technically the same, but use both */                                   overflow-wrap: break-word;                                   word-wrap: break-word;                                                                    -ms-word-break: break-all;                                   /* This is the dangerous one in WebKit, as it breaks things wherever */                                   word-break: break-all;                                   /* Instead use this non-standard one: */                                   word-break: break-word;                                                                    /* Adds a hyphen where the word breaks, if supported (No Blink) */                                   -ms-hyphens: auto;                                   -moz-hyphens: auto;                                   -webkit-hyphens: auto;                                   hyphens: auto;                               ">SMPW
+                                    Q 07 CJ 02 LT 04</td><td role="gridcell"
+                                    style="text-align: center; width: auto;">25/09/2024
+                                    às 12h00</td><td role="gridcell"
+                                    style="text-align: center; width: auto;">25/09/2024
+                                    às 19h00</td><td role="gridcell"
+                                    style="text-align: center; width: auto;">Não
+                                    programada</td><td role="gridcell"
+                                    style="text-align: center; width: auto;"></td></tr><tr
+                                data-ri="1"
+                                class="ui-widget-content ui-datatable-odd"
+                                role="row"><td role="gridcell"
+                                    style="text-align: center; width: auto;">São
+                                    Sebastião</td><td role="gridcell"
+                                    style="text-align: center; width: 45%;                                   /* These are technically the same, but use both */                                   overflow-wrap: break-word;                                   word-wrap: break-word;                                                                    -ms-word-break: break-all;                                   /* This is the dangerous one in WebKit, as it breaks things wherever */                                   word-break: break-all;                                   /* Instead use this non-standard one: */                                   word-break: break-word;                                                                    /* Adds a hyphen where the word breaks, if supported (No Blink) */                                   -ms-hyphens: auto;                                   -moz-hyphens: auto;                                   -webkit-hyphens: auto;                                   hyphens: auto;                               ">CE,
+                                    JOÃO CANDIDO, STR, B BOPNSUCESSO CJ 01 AO
+                                    04, S BARTOLO, RES. OESTE 101, 102, 103, 201
+                                    E 301</td><td role="gridcell"
+                                    style="text-align: center; width: auto;">25/09/2024
+                                    às 11h05</td><td role="gridcell"
+                                    style="text-align: center; width: auto;">26/09/2024
+                                    às 09h00</td><td role="gridcell"
+                                    style="text-align: center; width: auto;">Não
+                                    programada</td><td role="gridcell"
+                                    style="text-align: center; width: auto;">Manutenção
+                                    do Sistema Distribuidor</td></tr><tr
+                                data-ri="2"
+                                class="ui-widget-content ui-datatable-even"
+                                role="row"><td role="gridcell"
+                                    style="text-align: center; width: auto;">Ceilandia
+                                    II</td><td role="gridcell"
+                                    style="text-align: center; width: 45%;                                   /* These are technically the same, but use both */                                   overflow-wrap: break-word;                                   word-wrap: break-word;                                                                    -ms-word-break: break-all;                                   /* This is the dangerous one in WebKit, as it breaks things wherever */                                   word-break: break-all;                                   /* Instead use this non-standard one: */                                   word-break: break-word;                                                                    /* Adds a hyphen where the word breaks, if supported (No Blink) */                                   -ms-hyphens: auto;                                   -moz-hyphens: auto;                                   -webkit-hyphens: auto;                                   hyphens: auto;                               ">RES
+                                    N MOR CH 115</td><td role="gridcell"
+                                    style="text-align: center; width: auto;">25/09/2024
+                                    às 08h35</td><td role="gridcell"
+                                    style="text-align: center; width: auto;">25/09/2024
+                                    às 17h03</td><td role="gridcell"
+                                    style="text-align: center; width: auto;">Não
+                                    programada</td><td role="gridcell"
+                                    style="text-align: center; width: auto;">Manutenção
+                                    do Sistema Distribuidor</td></tr><tr
+                                data-ri="3"
+                                class="ui-widget-content ui-datatable-odd"
+                                role="row"><td role="gridcell"
+                                    style="text-align: center; width: auto;">Jardim
+                                    Botanico</td><td role="gridcell"
+                                    style="text-align: center; width: 45%;                                   /* These are technically the same, but use both */                                   overflow-wrap: break-word;                                   word-wrap: break-word;                                                                    -ms-word-break: break-all;                                   /* This is the dangerous one in WebKit, as it breaks things wherever */                                   word-break: break-all;                                   /* Instead use this non-standard one: */                                   word-break: break-word;                                                                    /* Adds a hyphen where the word breaks, if supported (No Blink) */                                   -ms-hyphens: auto;                                   -moz-hyphens: auto;                                   -webkit-hyphens: auto;                                   hyphens: auto;                               ">COND
+                                    S BSB, COND, JARDIM DAS PAINEIRAS, COND J B
+                                    BOT IIIQ 01 A Q 09,<br />COND J BOT
+                                    I,<br />COND PARQUE DAS
+                                    PAINEIRAS.<br />MIRANTE DAS
+                                    PAINEIRAS.</td><td role="gridcell"
+                                    style="text-align: center; width: auto;">24/09/2024
+                                    às 16h06</td><td role="gridcell"
+                                    style="text-align: center; width: auto;">25/09/2024
+                                    às 14h00</td><td role="gridcell"
+                                    style="text-align: center; width: auto;">Não
+                                    programada</td><td role="gridcell"
+                                    style="text-align: center; width: auto;">Manutenção
+                                    do Sistema Distribuidor</td></tr><tr
+                                data-ri="4"
+                                class="ui-widget-content ui-datatable-even"
+                                role="row"><td role="gridcell"
+                                    style="text-align: center; width: auto;">Planaltina</td><td
+                                    role="gridcell"
+                                    style="text-align: center; width: 45%;                                   /* These are technically the same, but use both */                                   overflow-wrap: break-word;                                   word-wrap: break-word;                                                                    -ms-word-break: break-all;                                   /* This is the dangerous one in WebKit, as it breaks things wherever */                                   word-break: break-all;                                   /* Instead use this non-standard one: */                                   word-break: break-word;                                                                    /* Adds a hyphen where the word breaks, if supported (No Blink) */                                   -ms-hyphens: auto;                                   -moz-hyphens: auto;                                   -webkit-hyphens: auto;                                   hyphens: auto;                               ">SETOR
+                                    TRADICIONAL SUL (STRS)<br />SETOR
+                                    TRADICIONAL CENTRO (STRC)<br />SETOR
+                                    TRADICIONAL NORTE (STRN)<br />VILA
+                                    VICENTINA<br />SLE Q 06 CJ K<br />COND
+                                    GUIRRA, BNSF</td><td role="gridcell"
+                                    style="text-align: center; width: auto;">24/09/2024
+                                    às 13h54</td><td role="gridcell"
+                                    style="text-align: center; width: auto;">25/09/2024
+                                    às 14h00</td><td role="gridcell"
+                                    style="text-align: center; width: auto;">Não
+                                    programada</td><td role="gridcell"
+                                    style="text-align: center; width: auto;">Manutenção
+                                    do Sistema
+                                    Distribuidor</td></tr></tbody></table></div><div
+                    id="tabView:formFaltaDeAgua:tableFaltaDeAgua_paginator_bottom"
+                    class="ui-paginator ui-paginator-bottom ui-widget-header ui-corner-bottom"
+                    role="navigation" aria-label="Pagination"><a href="#"
+                        class="ui-paginator-first ui-state-default ui-corner-all ui-state-disabled"
+                        aria-label="First Page" tabindex="-1"><span
+                            class="ui-icon ui-icon-seek-first">F</span></a><a
+                        href="#"
+                        class="ui-paginator-prev ui-state-default ui-corner-all ui-state-disabled"
+                        aria-label="Previous Page" tabindex="-1"><span
+                            class="ui-icon ui-icon-seek-prev">P</span></a><span
+                        class="ui-paginator-pages"><a
+                            class="ui-paginator-page ui-state-default ui-state-active ui-corner-all"
+                            tabindex="0" href="#">1</a></span><a href="#"
+                        class="ui-paginator-next ui-state-default ui-corner-all ui-state-disabled"
+                        aria-label="Next Page" tabindex="-1"><span
+                            class="ui-icon ui-icon-seek-next">N</span></a><a
+                        href="#"
+                        class="ui-paginator-last ui-state-default ui-corner-all ui-state-disabled"
+                        aria-label="Last Page" tabindex="-1"><span
+                            class="ui-icon ui-icon-seek-end">E</span></a><label
+                        id="tabView:formFaltaDeAgua:tableFaltaDeAgua_rppLabel"
+                        for="tabView:formFaltaDeAgua:tableFaltaDeAgua:j_id65"
+                        class="ui-paginator-rpp-label ui-helper-hidden">Rows Per
+                        Page</label><select
+                        id="tabView:formFaltaDeAgua:tableFaltaDeAgua:j_id65"
+                        name="tabView:formFaltaDeAgua:tableFaltaDeAgua_rppDD"
+                        aria-labelledby="tabView:formFaltaDeAgua:tableFaltaDeAgua_rppLabel"
+                        class="ui-paginator-rpp-options ui-widget ui-state-default ui-corner-left"
+                        value="200" autocomplete="off"><option
+                            value="50">50</option><option
+                            value="100">100</option><option value="200"
+                            selected="selected">200</option></select></div></div><script
+                id="tabView:formFaltaDeAgua:tableFaltaDeAgua_s"
+                type="text/javascript">$(function(){PrimeFaces.cw("DataTable","widget_tabView_formFaltaDeAgua_tableFaltaDeAgua",{id:"tabView:formFaltaDeAgua:tableFaltaDeAgua",paginator:{id:['tabView:formFaltaDeAgua:tableFaltaDeAgua_paginator_bottom'],rows:200,rowCount:5,page:0,currentPageTemplate:'({currentPage} of {totalPages})'},rowSelectMode:"checkbox",filter:true,filterEvent:"keyup",groupColumnIndexes:[]});});</script>
+        </form>]]></update><update
+        id="javax.faces.ViewState"><![CDATA[e1s1]]></update></changes></partial-response>

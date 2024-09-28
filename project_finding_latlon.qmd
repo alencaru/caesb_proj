@@ -1,0 +1,99 @@
+---
+title: "Project: CAESB - getting lat lon from address"
+format: html
+---
+
+### Pacotes
+
+Carregando pacotes que serão usados na transformação da tabela e na busca da latitude e longitude
+
+```{python}
+
+import pandas as pd
+from geopy.geocoders import Nominatim
+from geopy.extra.rate_limiter import RateLimiter
+from sqlalchemy import create_engine
+
+```
+
+```{python}
+
+```
+### Carregando o dataframe com os dados da CAESB
+
+```{python}
+
+df = pd.read_csv('data.csv')
+
+```
+
+
+#### Separando a segunda coluna em novas linhas
+
+*Transformação 1*
+
+```{python}
+
+(
+    df.set_index(['Unnamed: 0']) 
+       .apply(lambda col: col.str.split(','))
+       .explode(['Áreas AfetadasFilter by Áreas Afetadas'])
+       .reset_index()
+       .reindex(df.columns, axis=1)
+       
+)
+
+df = df.set_axis(["id", "ra", "end", "inicio", "fim", "tipo", "motivo"], axis=1)
+
+```
+
+```{python}
+
+df["end_completo"] =  df["end"] + ", " + df['ra'] + ", DF" + ", BRAZIL"
+df
+```
+
+### Aplicando a função pegar endereço e retornar latlong
+
+*Transformação 2* criando o endereço e procurando a latitude e longitude
+
+```{python}
+
+loc = Nominatim(user_agent="mygeo")
+geocode = RateLimiter(loc.geocode, min_delay_seconds=1)
+
+df["end_completo"] = df["end"] + ", " + df['ra'] + ", DF" + ", BRAZIL"
+
+df["geo"] = df["end_completo"].apply(geocode)
+
+df
+
+```
+
+
+```{python}
+
+df["point"] = df["geo"].apply(lambda l: tuple(l.point) if l else None)
+df["lat"] = df["geo"].apply(lambda l: l.latitude if l else None)
+df["lon"] = df["geo"].apply(lambda l: l.longitude if l else None)
+
+df
+
+```
+
+**backup in CSV**
+Dados com lat lon
+```{python}
+# base com lat lon
+df.to_csv("data_geo.csv")
+```
+
+Dados sem lat
+```{python}
+# base sem lat lon
+df_na = df.query("point != point")
+
+df_na
+
+```
+

@@ -1,0 +1,196 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: \"Project: CAESB - getting lat lon from address\"\n",
+        "format: html\n",
+        "---\n",
+        "\n",
+        "\n",
+        "### Pacotes\n",
+        "\n",
+        "Carregando pacotes que serão usados na transformação da tabela e na busca da latitude e longitude\n"
+      ],
+      "id": "5e7ddcf1"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import pandas as pd\n",
+        "from geopy.geocoders import Nominatim\n",
+        "from geopy.extra.rate_limiter import RateLimiter\n",
+        "from sqlalchemy import create_engine"
+      ],
+      "id": "75107a1a",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### Carregando o dataframe com os dados da CAESB\n"
+      ],
+      "id": "09ea09f4"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df = pd.read_csv('data.csv')"
+      ],
+      "id": "8fd6a67e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "#### Separando a segunda coluna em novas linhas\n",
+        "\n",
+        "*Transformação 1*\n"
+      ],
+      "id": "0dbf1cc2"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "(\n",
+        "    df.set_index(['Unnamed: 0']) \n",
+        "       .apply(lambda col: col.str.split(','))\n",
+        "       .explode(['Áreas AfetadasFilter by Áreas Afetadas'])\n",
+        "       .reset_index()\n",
+        "       .reindex(df.columns, axis=1)\n",
+        "       \n",
+        ")\n",
+        "\n",
+        "df = df.set_axis([\"id\", \"ra\", \"end\", \"inicio\", \"fim\", \"tipo\", \"motivo\"], axis=1)"
+      ],
+      "id": "9dae91b9",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df[\"end_completo\"] =  df[\"end\"] + \", \" + df['ra'] + \", DF\" + \", BRAZIL\"\n",
+        "df"
+      ],
+      "id": "7a47f508",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### Aplicando a função pegar endereço e retornar latlong\n",
+        "\n",
+        "*Transformação 2* criando o endereço e procurando a latitude e longitude\n"
+      ],
+      "id": "9bdbdc15"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "loc = Nominatim(user_agent=\"mygeo\")\n",
+        "geocode = RateLimiter(loc.geocode, min_delay_seconds=1)\n",
+        "\n",
+        "df[\"end_completo\"] = df[\"end\"] + \", \" + df['ra'] + \", DF\" + \", BRAZIL\"\n",
+        "\n",
+        "df[\"geo\"] = df[\"end_completo\"].apply(geocode)\n",
+        "\n",
+        "df"
+      ],
+      "id": "ab3a6c28",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df[\"point\"] = df[\"geo\"].apply(lambda l: tuple(l.point) if l else None)\n",
+        "df[\"lat\"] = df[\"geo\"].apply(lambda l: l.latitude if l else None)\n",
+        "df[\"lon\"] = df[\"geo\"].apply(lambda l: l.longitude if l else None)\n",
+        "\n",
+        "df"
+      ],
+      "id": "3fb87d5b",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "**backup in CSV**"
+      ],
+      "id": "b73b6d14"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# base com lat lon\n",
+        "df.to_csv(\"data_geo.csv\")"
+      ],
+      "id": "ce66bf58",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# base sem lat lon\n",
+        "df_na = df.query(\"point != point\")\n",
+        "\n",
+        "df_na"
+      ],
+      "id": "8ebeaeb4",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#df_na.to_csv(\"data_na.csv\")"
+      ],
+      "id": "485c29cb",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#engine = create_engine('sqlite:///caesb.db', echo=False)\n",
+        "\n",
+        "#df.to_sql('base', con=engine, if_exists='append')"
+      ],
+      "id": "d780effd",
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "C:\\Users\\alencar\\AppData\\Local\\Programs\\Python\\Python310\\share\\jupyter\\kernels\\python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

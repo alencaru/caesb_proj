@@ -1,0 +1,124 @@
+---
+title: "Geodata processing"
+format: html
+---
+
+#### Carregando os pacotes necessários
+
+
+```{python}
+
+import pandas as pd
+import geopandas as gpd
+from geodatasets import get_path
+
+```
+
+
+#### Abrindo os shapes das regioes de brasilia
+```{python}
+
+path_geodata = "C:/Users/alencar/Documents/DataScience/caesb_proj/malha/"
+gdf = gpd.read_file(path_geodata)
+
+```
+
+**Geo dataframe do DF**
+
+```{python}
+gdf
+```
+
+#### Plotando o mapa
+
+```{python}
+gdf.plot(legend=True)
+```
+
+#### Mapa interativo para verificar as geometrias
+```{python}
+gdf.explore(legend=False)
+```
+
+#### Plotando os pontos Lat-Lon
+```{python}
+data_geo = pd.read_csv("data/data_geo.csv")
+```
+
+**filtrando somente linhas com dados geo**
+```{python}
+data_geo_f = data_geo[data_geo["point"].notna()]
+data_geo_f
+```
+
+#### Plotando o ponto no mapa interativo
+
+**Definindo a coluna de geometria**
+```{python}
+
+data_geo_f = gpd.GeoDataFrame(
+    data_geo_f, 
+    geometry=gpd.points_from_xy(
+        data_geo_f.lon, 
+        data_geo_f.lat
+        ), 
+    crs="EPSG:4326"
+    )
+data_geo_f
+```
+
+**Plotando**
+```{python}
+data_geo_f.explore(legend=False)
+```
+
+#### juntando os mapas 
+**Analise visual**
+
+
+```{python}
+import folium
+
+m = gdf.explore(
+    #column="CD_SETOR",  
+    fillColor="#aed6f1",
+    color="gray",
+    scheme="naturalbreaks",  
+    legend=False,  
+    k=10,  # bins
+    tooltip=False,  
+    popup=["CD_SETOR", "NM_MUN"],  
+    legend_kwds=dict(colorbar=False), 
+    name="Distrito Federal",  
+)
+
+data_geo_f.explore(
+    m=m,  
+    color="red",  
+    marker_kwds=dict(radius=5, fill=True),  
+    tooltip="ra",  
+    tooltip_kwds=dict(labels=False),  
+    name="RA afetada",  
+)
+
+folium.TileLayer("CartoDB positron", show=False).add_to(m)  
+folium.LayerControl().add_to(m) 
+
+m  
+
+```
+
+
+
+```{python}
+
+path_geo = "C:/Users/alencar/Documents/DataScience/caesb_proj/geo/DF/"
+shape = gpd.read_file(path_geo)
+
+
+```
+
+
+```{python}
+shape.explore(legend=False)
+```
